@@ -153,11 +153,11 @@ def preprocess_data(
     X_train = data['train_inputs'][artifacts.numeric_cols + artifacts.encoded_cols]
     X_val = data['val_inputs'][artifacts.numeric_cols + artifacts.encoded_cols]
 
-    return {
+       return {
         'train_X': X_train,
-        'train: data['train_targets'],
+        'train_targets': data['train_targets'],
         'val_X': X_val,
-        'val_y': data['val_targets'],
+        'val_targets': data['val_targets'],
         'preprocessor': artifacts,
     }
 
@@ -183,4 +183,4 @@ def preprocess_new_data(
     encoded_df = pd.DataFrame(encoded, columns=artifacts.encoded_cols, index=new_df.index)
 
     numeric_df = pd.DataFrame(scaled, columns=artifacts.numeric_cols, index=new_df.index)
-    return pd.concat([numeric_df, encoded_df], axis=1)_y'
+    return pd.concat([numeric_df, encoded_df], axis=1)
